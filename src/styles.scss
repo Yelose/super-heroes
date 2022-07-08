@@ -5,7 +5,15 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 html, body {
     height: 100%;
+}
+html {
+    background-image: url("/assets/heroesfondo.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h3 {
+    font-size: clamp(15px, 2vw, 25px);
 }

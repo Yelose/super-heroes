@@ -1,8 +1,11 @@
-<div>
-    <div class="header">Super Hero Multiverse</div>
+<header>
+    <figure>
+        <img src="assets/logoScrummers.png" alt="logo Scrummers">
+    </figure>
+    <h1 class="header">Super Hero Multiverse</h1>
     <div class="menu">
-        <div *ngFor="let menuOption of menuOptions">
+        <h2 *ngFor="let menuOption of menuOptions">
             <a href="javascript:void(0)" (click)="loadPage(menuOption.url)">{{menuOption.title}}</a>
-        </div>
+        </h2>
     </div>
-</div>
+</header>

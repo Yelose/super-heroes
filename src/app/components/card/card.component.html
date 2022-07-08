@@ -1,8 +1,35 @@
-<div>
-    <p>{{hero.name}}<span *ngIf="hero.biography.fullName != ''"> ({{hero.biography.fullName}})</span></p>
-    <img [src]="hero.images.sm" width="100" />
-    <progress [value]="hero.powerstats.strength / 100"></progress>
-    <progress [value]="hero.powerstats.intelligence / 100"></progress>
-    <progress [value]="hero.powerstats.power / 100"></progress>
-    <progress [value]="hero.powerstats.speed / 100"></progress>
+<div class="card-container">
+    <section class="img-name-container">
+        <h3>{{hero.name}}</h3>
+        <img [src]="hero.images.sm" width="100" />
+    </section>
+    <section class="stats-container">
+        <h3 *ngIf="hero.biography.fullName !=''">{{hero.biography.fullName}}</h3>
+        <h3 *ngIf="hero.biography.fullName ==''">{{hero.name}}</h3>
+
+        <figure class="bar-container STR-bar">
+            <span>STR: </span>
+            <progress [value]="hero.powerstats.strength / 100"></progress>
+        </figure>
+        <figure class="bar-container INT-bar">
+            <span>INT: </span>
+            <progress [value]="hero.powerstats.intelligence / 100"></progress>
+        </figure>
+        <figure class="bar-container POW-bar">
+            <span>POW: </span>
+            <progress [value]="hero.powerstats.power / 100"></progress>
+        </figure>
+        <figure class="bar-container SPD-bar">
+            <span>SPD: </span>
+            <progress [value]="hero.powerstats.speed / 100"></progress>
+        </figure>
+        <figure class="bar-container DUR-bar">
+            <span>DUR: </span>
+            <progress [value]="hero.powerstats.durability / 100"></progress>
+        </figure>
+        <figure class="bar-container COM-bar">
+            <span>COM: </span>
+            <progress [value]="hero.powerstats.combat / 100"></progress>
+        </figure>
+    </section>
 </div>

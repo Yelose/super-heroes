@@ -14,6 +14,8 @@ export class CharacterCreatorComponent implements OnInit {
   public INT: number
   public POW: number
   public SPD: number
+  public DUR: number
+  public COM: number
   public popupVisible: boolean = false
   @ViewChild("inputFile") public inputFile: ElementRef<HTMLInputElement>
 
@@ -48,6 +50,8 @@ export class CharacterCreatorComponent implements OnInit {
     hero.powerstats.intelligence = this.INT
     hero.powerstats.power = this.POW
     hero.powerstats.speed = this.SPD
+    hero.powerstats.durability = this.DUR
+    hero.powerstats.combat = this.COM
     hero.images = new Images()
     hero.images.sm = '/assets/noimage.png'
     hero.id = Math.max(...this.heroes.superHeroes.map(p => p.id)) + 1
@@ -77,6 +81,14 @@ export class CharacterCreatorComponent implements OnInit {
       alert('Invalid SPD value.')
       return
     }
+    if (isNaN(hero.powerstats.durability) || hero.powerstats.durability < 0 || hero.powerstats.durability > 100) {
+      alert('Invalid DUR value.')
+      return
+    }
+    if (isNaN(hero.powerstats.combat) || hero.powerstats.combat < 0 || hero.powerstats.combat > 100) {
+      alert('Invalid COM value.')
+      return
+    }
 
     this.heroes.superHeroes.push(hero)
     this.heroes.favorites.push(hero)
@@ -86,6 +98,8 @@ export class CharacterCreatorComponent implements OnInit {
     delete this.POW
     delete this.SPD
     delete this.STR
+    delete this.DUR
+    delete this.COM
 
     this.popupVisible = false
     this.heroes.saveHeroes()
@@ -115,6 +129,14 @@ export class CharacterCreatorComponent implements OnInit {
   public setSPD(e: Event) {
     let value = (e.target as HTMLInputElement).value
     this.SPD = parseInt(value)
+  }
+  public setDUR(e: Event) {
+    let value = (e.target as HTMLInputElement).value
+    this.DUR = parseInt(value)
+  }
+  public setCOM(e: Event) {
+    let value = (e.target as HTMLInputElement).value
+    this.COM = parseInt(value)
   }
 
   public clickMask(e: Event) {
