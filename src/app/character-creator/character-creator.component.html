@@ -1,0 +1,16 @@
+<button type="button" (click)="popupVisible = true">Create new hero</button>
+<div class="popup" *ngIf="popupVisible" (click)="clickMask($event)">
+    <div>
+        <div class="closebtn" (click)="popupVisible = false">x</div>
+        <table>
+            <tr><td>Name</td><td><input type="text" (change)="setName($event)" [value]="Name" /></td></tr>
+            <tr><td>Full Name</td><td><input type="text" (change)="setFullName($event)" [value]="FullName" /></td></tr>
+            <tr><td>Image</td><td><input #inputFile type="file" /></td></tr>
+            <tr><td>STR</td><td><input type="number" min="0" max="100" (change)="setSTR($event)" [value]="STR" /></td></tr>
+            <tr><td>INT</td><td><input type="number" min="0" max="100" (change)="setINT($event)" [value]="INT" /></td></tr>
+            <tr><td>POW</td><td><input type="number" min="0" max="100" (change)="setPOW($event)" [value]="POW" /></td></tr>
+            <tr><td>SPD</td><td><input type="number" min="0" max="100" (change)="setSPD($event)" [value]="SPD" /></td></tr>
+        </table>
+        <button type="button" (click)="createHero()">Create hero</button>
+    </div>
+</div>

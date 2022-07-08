@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeroesService } from './services/heroes.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'super-heroes-angular';
+  
+  constructor(
+    public heroes: HeroesService
+  ) {}
+
+  async ngOnInit(): Promise<void> {
+    await this.heroes.loadSuperHeroes()
+  }
+
 }

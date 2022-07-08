@@ -1,0 +1,8 @@
+<div>
+    <p>{{hero.name}}<span *ngIf="hero.biography.fullName != ''"> ({{hero.biography.fullName}})</span></p>
+    <img [src]="hero.images.sm" width="100" />
+    <progress [value]="hero.powerstats.strength / 100"></progress>
+    <progress [value]="hero.powerstats.intelligence / 100"></progress>
+    <progress [value]="hero.powerstats.power / 100"></progress>
+    <progress [value]="hero.powerstats.speed / 100"></progress>
+</div>

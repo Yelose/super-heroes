@@ -1,0 +1,14 @@
+<div class="filter">
+    <input type="search" (keyup)="setFilter($event)" (search)="setFilter($event)" />
+</div>
+<div *ngFor="let hero of loadPage()">
+    <app-card (click)="heroClick(hero)" [hero]="hero"></app-card>
+    <p *ngIf="ShowFullInfo">
+        [FAV]
+    </p>
+</div>
+<div class="pagination">
+    <div *ngFor="let p of pages()">
+        <a [style]="(p == page) ? 'font-weight: bold;': ''" href="javascript:void(0)" (click)="setPage(p)">{{p}}</a>
+    </div>
+</div>
